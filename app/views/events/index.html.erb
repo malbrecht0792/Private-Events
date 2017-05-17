@@ -1,0 +1,14 @@
+<h1>
+	All Events
+</h1>
+
+<% @events.each do |event| %>
+	<p>
+		Host:
+		<%= event.host.name %> <br>
+		Description:
+		<%= event.description %> <br>
+		Date/Time:
+		<%= event.datetime %> <br>
+	</p>
+<% end %>

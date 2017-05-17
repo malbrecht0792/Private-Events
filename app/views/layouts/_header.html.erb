@@ -1,0 +1,9 @@
+<header>
+    <% if logged_in? %>
+      <%= current_user.name %>
+    <% end %>
+  <ul>
+    <li><%= link_to "Events", events_path %></li>
+    <li><%= link_to "Log in", login_path %></li>
+  </ul>
+</header>

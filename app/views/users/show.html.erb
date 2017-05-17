@@ -4,3 +4,9 @@
 <h2>
 	<%= @user.name %>
 </h2>
+<% @events.each do |event| %>
+	<p>
+		<%= event.description %>
+		<%= event.datetime %>
+	</p>
+<% end %>
