@@ -1,6 +1,25 @@
 <h1>
 	Event page
 </h1>
+
+<% if attending?(current_user, @event) %>
+
+	<%= form_for(current_user.invitations.find_by(event_id: @event.id, attendee_id: current_user.id), html: { method: :delete }) do |f| %>
+	  <div><%= f.hidden_field :event_id %></div>
+	  <div><%= f.hidden_field :attendee_id %></div>
+	  <%= f.submit "Cancel" %>
+	<% end %>
+
+<% else %>
+
+	<%= form_for(current_user.invitations.build(event_id: @event.id, host_id: @event.host_id)) do |f| %>
+	  <div><%= f.hidden_field :event_id %></div>
+	  <div><%= f.hidden_field :host_id %></div>
+	  <%= f.submit "Attend" %>
+	<% end %>
+
+<% end %>
+
 <p>
 		Host:
 		<%= @event.host.name %> <br>
@@ -9,3 +28,11 @@
 		Date/Time:
 		<%= @event.datetime %> <br>
 </p>
+
+Attendees:
+
+<% @event.attendees.each do |attendee| %>
+	<p>	
+		<%= attendee.name %> <br>
+	</p>
+<% end %>

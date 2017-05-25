@@ -1,9 +1,13 @@
 <header>
     <% if logged_in? %>
+      Logged In User:
       <%= current_user.name %>
     <% end %>
   <ul>
+    <li><%= link_to "Home", current_user %></li>
     <li><%= link_to "Events", events_path %></li>
-    <li><%= link_to "Log in", login_path %></li>
+    <li><%= link_to "Create Event", new_event_path %></li>
+    <li><%= link_to "Log In", login_path %></li>
+    <li><%= link_to "Sign Up", signup_path %></li>
   </ul>
 </header>

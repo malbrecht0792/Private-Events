@@ -4,9 +4,68 @@
 <h2>
 	<%= @user.name %>
 </h2>
-<% @events.each do |event| %>
+
+<h3>
+Events Hosting:
+</h3>
+
+<% @user.events.each do |event| %>
 	<p>
-		<%= event.description %>
+		Host:
+		<%= event.host.name %> <br>
+		Description:
+		<%= event.description %> <br>
+		Date/Time:
 		<%= event.datetime %>
+		<li><%= link_to "View Event", event_path(event.id) %></li>
 	</p>
 <% end %>
+
+<h3>
+Events Attending:
+</h3>
+
+<% @user.invitations.each do |invitation| %>
+	<p>
+		Host:
+		<%= invitation.event.host.name %> <br>
+		Description:
+		<%= invitation.event.description %> <br>
+		Date/Time:
+		<%= invitation.event.datetime %>
+		<li><%= link_to "View Event", event_path(invitation.event.id) %></li>
+	</p>
+<% end %>
+
+<h3>
+Upcoming Events Attending:
+</h3>
+
+<% @upcoming_events.each do |event| %>
+	<p>
+		Host:
+		<%= event.host.name %> <br>
+		Description:
+		<%= event.description %> <br>
+		Date/Time:
+		<%= event.datetime %>
+		<li><%= link_to "View Event", event_path(event.id) %></li>
+	</p>
+<% end %>
+
+<h3>
+Previous Events Attended:
+</h3>
+
+<% @previous_events.each do |event| %>
+	<p>
+		Host:
+		<%= event.host.name %> <br>
+		Description:
+		<%= event.description %> <br>
+		Date/Time:
+		<%= event.datetime %>
+		<li><%= link_to "View Event", event_path(event.id) %></li>
+	</p>
+<% end %>
+
