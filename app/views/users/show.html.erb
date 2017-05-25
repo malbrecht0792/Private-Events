@@ -22,22 +22,6 @@ Events Hosting:
 <% end %>
 
 <h3>
-Events Attending:
-</h3>
-
-<% @user.invitations.each do |invitation| %>
-	<p>
-		Host:
-		<%= invitation.event.host.name %> <br>
-		Description:
-		<%= invitation.event.description %> <br>
-		Date/Time:
-		<%= invitation.event.datetime %>
-		<li><%= link_to "View Event", event_path(invitation.event.id) %></li>
-	</p>
-<% end %>
-
-<h3>
 Upcoming Events Attending:
 </h3>
 
