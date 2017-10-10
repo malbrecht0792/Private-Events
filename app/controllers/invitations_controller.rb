@@ -3,7 +3,6 @@ class InvitationsController < ApplicationController
   def create
   	event = Event.find(params[:invitation][:event_id])
   	invitation = current_user.invitations.build(invitation_params)
-  	puts "HEY!!!"
   	invitation.save
   	puts invitation.errors.full_messages
   	redirect_to event
